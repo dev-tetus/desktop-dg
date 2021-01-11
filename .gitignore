@@ -1,0 +1,5 @@
+node_modules
+.eslintcache
+public/*
+!/public/electron.js
+!/public/index.html
