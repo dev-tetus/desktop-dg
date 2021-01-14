@@ -3,3 +3,10 @@ node_modules
 public/*
 !/public/electron.js
 !/public/index.html
+
+
+.env
+
+
+#Keys
+dev.js
