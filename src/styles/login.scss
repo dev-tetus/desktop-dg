@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap");
 $ff-title: "Poppins", sans-serif;
 .page-container {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+
   h2 {
     font-size: 72px;
     font-family: $ff-title;
@@ -10,7 +17,8 @@ $ff-title: "Poppins", sans-serif;
     text-align: center;
   }
   .form-box {
-    position: relative;
+    margin-left: 50%;
+    transform: translate(-50%);
     height: 500px;
     width: 390px;
     background-image: radial-gradient(
@@ -18,10 +26,7 @@ $ff-title: "Poppins", sans-serif;
       #330e6bb0 0%,
       #161318 100%
     );
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
     &-text {
       max-width: 80%;
       padding-left: 2rem;
