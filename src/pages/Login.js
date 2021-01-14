@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../config/axios";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleAuth } from "../actions/toogleAuth";
+import { toggleAuth } from "../redux/actions/toogleAuth";
 const keys = require("../keys/index");
 
 function Login() {
