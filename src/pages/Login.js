@@ -10,13 +10,15 @@ const keys = require("../keys/index");
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  var isLogged = useSelector((state) => state.auth); //! Redux state for Log In
+
+  //! Redux state for Log In
+  //* var isLogged = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const [loggedIn, setLoggedIn] = useState(false); //*Local state for Log In
 
   async function sendLogin() {
     try {
-      console.log(loggedIn);
       const response = await axios({
         method: "post",
         url: "/auth/login",
@@ -33,14 +35,6 @@ function Login() {
       if (error) console.log(error);
     }
   }
-  const redirect = () => {
-    if (loggedIn) {
-      return <Redirect to="/" />;
-    }
-  };
-  // useEffect(() => {
-  //   return redirect();
-  // }, [isLogged]);
 
   //*Check if already loggedIn
   useEffect(async () => {
@@ -50,17 +44,24 @@ function Login() {
         url: "/auth/session",
       });
       if (response.status === 200) {
-        console.log(response.data);
         setLoggedIn(true);
+        return console.log(response.data);
       }
     } catch (error) {
-      if (error) console.log(error.message);
+      if (error) return console.log(error);
     }
   }, []);
-  //*redirect home if logged in
+
+  //*Redirect home if logged in
+  const redirect = () => {
+    if (loggedIn) {
+      return <Redirect to="/" />;
+    }
+  };
+
   return (
     <div className="page-container">
-      {/* {redirect()} */}
+      {redirect()}
       <h2>D.G</h2>
       <div className="form-box">
         <p className="form-box-text">
@@ -89,7 +90,6 @@ function Login() {
             Sign In
           </button>
         </form>
-        {loggedIn ? <h1>User is logged in</h1> : null}
       </div>
     </div>
   );
