@@ -1,7 +1,8 @@
-export const toggleAuth = (username) => {
+export const toggleAuth = (id, username) => {
   return {
     type: "TOGGLE_AUTH",
     payload: {
+      id: id,
       isAuth: true,
       username: username,
     },
