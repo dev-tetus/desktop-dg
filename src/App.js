@@ -18,7 +18,7 @@ function App() {
         url: "/auth/session",
       });
       if (response.status === 200) {
-        dispatch(toggleAuth());
+        dispatch(toggleAuth(response.data.id, response.data.username));
       }
     } catch (error) {
       if (error) console.log(error.response.data.message);

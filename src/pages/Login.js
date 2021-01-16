@@ -23,7 +23,7 @@ function Login() {
           password,
         },
       });
-      dispatch(toggleAuth(username));
+      dispatch(toggleAuth(response.data.id, response.data.username));
     } catch (error) {
       if (error) console.log(error.response.data.message);
     }
