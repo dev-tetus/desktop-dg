@@ -1,23 +1,19 @@
 import "../styles/login.scss";
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "../config/axios";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleAuth } from "../redux/actions/toogleAuth";
-const keys = require("../keys/index");
+import { toggleAuth } from "../redux/actions/toggleAuth";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  //! Redux state for Log In
-  //* var isLogged = useSelector((state) => state.auth);
+  const isLogged = useSelector((state) => state.authentication.isAuth);
 
   const dispatch = useDispatch();
-  const [loggedIn, setLoggedIn] = useState(false); //*Local state for Log In
 
-  async function sendLogin() {
+  async function sendLogin(e) {
     try {
       const response = await axios({
         method: "post",
@@ -27,34 +23,15 @@ function Login() {
           password,
         },
       });
-      //TODO: Dispatch action to change auth in store
-
-      console.log(response.data);
-      setLoggedIn(true);
+      dispatch(toggleAuth(username));
     } catch (error) {
-      if (error) console.log(error);
+      if (error) console.log(error.response.data.message);
     }
   }
 
-  //*Check if already loggedIn
-  useEffect(async () => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "/auth/session",
-      });
-      if (response.status === 200) {
-        setLoggedIn(true);
-        return console.log(response.data);
-      }
-    } catch (error) {
-      if (error) return console.log(error);
-    }
-  }, []);
-
   //*Redirect home if logged in
   const redirect = () => {
-    if (loggedIn) {
+    if (isLogged) {
       return <Redirect to="/" />;
     }
   };
