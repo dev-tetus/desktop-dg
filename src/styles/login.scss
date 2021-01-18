@@ -8,44 +8,42 @@ $ff-title: "Poppins", sans-serif;
   left: 50%;
   transform: translate(-50%);
 
-  h2 {
-    font-size: 72px;
-    font-family: $ff-title;
-    font-weight: 200;
-    font-style: italic;
-    color: #ffffff;
-    text-align: center;
+  .logo {
+    margin-top: 3rem;
+    margin-left: 50%;
+    transform: translate(-50%);
   }
   .form-box {
     margin-left: 50%;
+    margin-top: 5rem;
     transform: translate(-50%);
     height: 500px;
     width: 390px;
-    background-image: radial-gradient(
-      ellipse 100% 100%,
-      #330e6bb0 0%,
-      #161318 100%
+    background: linear-gradient(
+      149.52deg,
+      rgba(240, 219, 234, 0.55) 1.07%,
+      rgba(234, 213, 236, 0.1045) 100.03%
     );
-
-    &-text {
+    backdrop-filter: blur(105px);
+    border-radius: 8px;
+    border: 3px rgba(255, 255, 255, 0.459);
+    .form-box-text {
       max-width: 80%;
       padding-left: 2rem;
       padding-right: 2rem;
-      margin-top: 2rem;
+      padding-top: 2rem;
       text-align: center;
-      color: #ffffff;
+      color: #393939;
       font-family: "Poppins", sans-serif;
       font-size: 1rem;
       font-weight: 300;
     }
     img {
       display: block;
-      margin-top: 3rem;
+      margin-top: 5rem;
       margin-bottom: 3rem;
       margin-left: auto;
       margin-right: auto;
-      width: 10%;
-      height: 10%;
     }
     .login-form {
       color: white;
@@ -53,6 +51,7 @@ $ff-title: "Poppins", sans-serif;
         width: 100%;
         display: flex;
         &-labels {
+          color: #292929;
           font-family: $ff-title;
           font-weight: 400;
           font-size: 1rem;
@@ -67,7 +66,7 @@ $ff-title: "Poppins", sans-serif;
           input {
             font-size: 18px;
             font-family: $ff-title;
-            color: rgb(224, 224, 224);
+            color: #393939;
             margin-left: 2rem;
             max-width: 70%;
           }
@@ -94,14 +93,22 @@ $ff-title: "Poppins", sans-serif;
         cursor: pointer;
         width: 40%;
         height: 1.9rem;
-        border: none;
-        color: white;
-        background-color: #388697;
-        border-radius: 5px 5px;
+
+        color: black;
+        background: radial-gradient(
+          // 84.29% 2003.32% at 50% 50%,
+          rgba(255, 255, 255, 0.94) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 8px;
+
         display: block;
         margin-top: 2rem;
         margin-left: auto;
         margin-right: auto;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
         &:focus {
           outline: none;
         }
