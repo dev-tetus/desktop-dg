@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import axios from "../config/axios";
+import logo from "../assets/svg/mon logo 1.png";
+import { Nav } from "../components/index";
+import "../styles/home.scss";
 
 function Home() {
-  const isLogged= useSelector((state) => state.authentication.isAuth);
+  const isLogged = useSelector((state) => state.authentication.isAuth);
 
   //*check if logged in
   const redirectLogin = () => {
@@ -17,7 +19,10 @@ function Home() {
   return (
     <div>
       {redirectLogin()}
-      <h1>This is home!</h1>
+      <img className="logo" src={logo} />
+      <div className="glass">
+        <Nav className="nav" />
+      </div>
     </div>
   );
 }
