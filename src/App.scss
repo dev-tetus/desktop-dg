@@ -1,17 +1,23 @@
-$primary-color: #230c33;
+$primary-color: #24d2dd;
 $ff-title: "Poppins";
 
-html {
-  margin: 0;
-  padding: 0;
+* {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
+}
+html {
   font-size: 18px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 body {
   min-height: 100vh;
   background: linear-gradient(
-    to bottom,
-    rgba(35, 12, 51, 1) 0%,
-    rgba(17, 3, 28, 1) 100%
+    to bottom right,
+    $primary-color 0%,
+    rgba(47, 135, 216, 72%) 100%
   );
+  background-size: contain;
+  background-repeat: no-repeat;
 }
