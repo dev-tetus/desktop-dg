@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-//TODO PSEUDO-CLASS :HOVER LINKS
-
 const currentDate = new Date();
 export default function Nav() {
   const username = useSelector((state) => state.authentication.username);
@@ -27,18 +25,18 @@ export default function Nav() {
       <OpenNav id="navOpen" isOpen={isOpen}>
         <NavList>
           <ListElement isOpen={isOpen}>
-            <Link id="link" to="/produits">
+            <LinkStyled id="link" to="/produits">
               Produits
-            </Link>
+            </LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <Link to="/utilisateurs">Utilisateurs</Link>
+            <LinkStyled to="/utilisateurs">Utilisateurs</LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <Link to="/commandes">Commandes</Link>
+            <LinkStyled to="/commandes">Commandes</LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <Link to="/parametres">Paramètres</Link>
+            <LinkStyled to="/parametres">Paramètres</LinkStyled>
           </ListElement>
         </NavList>
       </OpenNav>
@@ -46,9 +44,7 @@ export default function Nav() {
   );
 }
 
-const Wrapper = styled.div`
-  height: 100%;
-`;
+const Wrapper = styled.div``;
 const Box = styled.div`
   display: flex;
   justify-content: space-between;
@@ -81,7 +77,7 @@ const OpenNav = styled.div`
   height: calc(100% - 5rem);
   position: absolute;
   right: 0px;
-  width: 15%;
+  width: 20%;
   top: 5rem;
   transform: ${({ isOpen }) =>
     isOpen ? "translate(0%, 0%)" : "translate(100%, 0%)"};
@@ -104,9 +100,29 @@ const NavList = styled.ul`
 `;
 
 const ListElement = styled.li`
+  position: relative;
   transform: ${({ isOpen }) =>
-    isOpen ? "translate(0%, 0%)" : "translate(0%, 100%)"};
+    isOpen ? "translate(0%, 0%)" : "translate(0%, 150%)"};
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0%")};
   transition: ${({ isOpen }) =>
-    isOpen ? "transform .8s, opacity .6s" : "all 0s"};
+    isOpen ? "transform 1.5s, opacity 2.5s" : "all 0s"};
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LinkStyled = styled(Link)`
+  z-index: 2;
+  cursor: pointer;
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: white;
+  }
 `;
