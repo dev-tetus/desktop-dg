@@ -1,2 +1,3 @@
 import Nav from "./Nav";
-export { Nav };
+import Product from "./Product";
+export { Nav, Product };
