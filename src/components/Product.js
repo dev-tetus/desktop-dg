@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Switch } from ".";
+
 const ProductWrapper = styled.div`
   padding: 0;
   height: 232px;
@@ -89,9 +91,9 @@ export default function Product(props) {
           </ListElement>
           <ListElement>
             <Key>Actif:</Key>
-            <Value>true</Value>{" "}
-            {/*//TODO: CREATE SWITCH COMPONENT
-             */}
+            <Value>
+              <Switch />
+            </Value>
           </ListElement>
         </Details>
       </ContentWrapper>
