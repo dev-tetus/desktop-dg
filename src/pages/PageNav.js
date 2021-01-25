@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
 import styled from "styled-components";
 import { Home, Produits } from ".";
 import logo from "../assets/svg/mon logo 1.png";
@@ -43,11 +43,14 @@ const Glass = styled.div`
 export default function PageNav() {
   return (
     <div>
-      <img className="logo" src={logo} />
+      <Link to="/home">
+        <img className="logo" src={logo} />
+      </Link>
 
       <Switch>
         <Glass>
           <Nav />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/produits" component={Produits} />
         </Glass>
       </Switch>
