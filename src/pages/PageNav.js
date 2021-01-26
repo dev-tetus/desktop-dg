@@ -29,7 +29,7 @@ const Glass = styled.div`
   );
   &::after {
     position: absolute;
-    width: 15%;
+    width: 20%;
     height: 100%;
     top: 0px;
     right: 0px;
