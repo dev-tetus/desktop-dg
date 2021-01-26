@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleAuth } from "../redux/actions/toggleAuth";
 
-import logo from "../assets/svg/mon logo 1.png";
-import lock from "../assets/svg/verificado 1.png";
+import logo from "../assets/images/mon logo 1.png";
+import lock from "../assets/images/verificado 1.png";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

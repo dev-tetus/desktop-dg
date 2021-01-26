@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
 import styled from "styled-components";
 import { Home, Produits } from ".";
-import logo from "../assets/svg/mon logo 1.png";
+import logo from "../assets/images/mon logo 1.png";
 import { Nav } from "../components";
 
 const Glass = styled.div`
