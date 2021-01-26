@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
 import { useSelector } from "react-redux";
+
+import Burger from "../assets/icons/Burger";
 
 const currentDate = new Date();
 export default function Nav() {
@@ -19,7 +20,7 @@ export default function Nav() {
           <p>Bonjour, {username}</p>
         </Text>
         <BurgerBox>
-          <p onClick={() => setIsOpen(!isOpen)}>Burger</p>
+          <Burger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         </BurgerBox>
       </Box>
       <OpenNav id="navOpen" isOpen={isOpen}>
@@ -56,7 +57,7 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   margin-top: 0px;
-  margin-left: 8rem;
+  margin-left: 15rem;
   height: 100%;
   width: 12rem;
   align-items: center;
@@ -70,14 +71,17 @@ const DateBox = styled.div`
 const BurgerBox = styled.div`
   width: 10%;
   height: 100%;
-  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const OpenNav = styled.div`
   background: rgba(255, 255, 255, 0.1);
   height: calc(100% - 5rem);
   position: absolute;
   right: 0px;
-  width: 20%;
+  width: 17%;
   top: 5rem;
   transform: ${({ isOpen }) =>
     isOpen ? "translate(0%, 0%)" : "translate(100%, 0%)"};
