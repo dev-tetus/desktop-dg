@@ -20,24 +20,24 @@ export default function Nav() {
           <p>Bonjour, {username}</p>
         </Text>
         <BurgerBox>
-          <Burger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+          <Burger onClick={() => setIsOpen(!isOpen)} />
         </BurgerBox>
       </Box>
-      <OpenNav id="navOpen" isOpen={isOpen}>
+      <OpenNav id='navOpen' isOpen={isOpen}>
         <NavList>
           <ListElement isOpen={isOpen}>
-            <LinkStyled id="link" to="/produits">
+            <LinkStyled id='link' to='/produits'>
               Produits
             </LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <LinkStyled to="/utilisateurs">Utilisateurs</LinkStyled>
+            <LinkStyled to='/utilisateurs'>Utilisateurs</LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <LinkStyled to="/commandes">Commandes</LinkStyled>
+            <LinkStyled to='/commandes'>Commandes</LinkStyled>
           </ListElement>
           <ListElement isOpen={isOpen}>
-            <LinkStyled to="/parametres">Paramètres</LinkStyled>
+            <LinkStyled to='/parametres'>Paramètres</LinkStyled>
           </ListElement>
         </NavList>
       </OpenNav>
@@ -87,6 +87,7 @@ const OpenNav = styled.div`
     isOpen ? "translate(0%, 0%)" : "translate(100%, 0%)"};
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0%")};
   transition: transform 0.5s, opacity 2s;
+  z-index: 10;
 `;
 
 const NavList = styled.ul`
